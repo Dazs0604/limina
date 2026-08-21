@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title id="page-title">Recipe | FoodNeverComes</title>
+        <meta name="description" id="page-description" content="">
+        <link rel="canonical" id="page-canonical" href="">
+        <meta name="robots" content="index, follow">
+        <meta property="og:type" content="article">
+        <meta property="og:title" id="og-title" content="">
+        <meta property="og:description" id="og-description" content="">
+        <meta property="og:image" id="og-image" content="">
+        <meta property="og:url" id="og-url" content="">
+        <meta name="twitter:card" content="summary_large_image">
+        <link rel="icon" href="/favicon.ico" sizes="any">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+        <!-- 复用 recipes.css 样式 -->
+        <link rel="stylesheet" href="recipes.css">
+
+        <!-- Google AdSense & GA4 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-N3J4MTFY50"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-N3J4MTFY50');
+        </script>
+        <meta name="google-adsense-account" content="ca-pub-7434423973770527">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7434423973770527" crossorigin="anonymous"></script>
+
+        <style>
+            /* 补充样式：recipe 详情页特有的布局 */
+            .recipe-hero img {
+                width: 100%;
+                aspect-ratio: 16/9;
+                max-height: 400px;
+                object-fit: cover;
+                border-radius: 22px;
+                margin: 20px 0 0;
+                border: 1px solid var(--line);
+                box-shadow: 0 18px 40px -22px rgba(67,48,58,.45);
+                display: block;
+            }
+            .recipe-meta {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin: 12px 0;
+            }
+            .recipe-meta span {
+                background: #fff;
+                border: 1.5px solid var(--line);
+                border-radius: 999px;
+                padding: 6px 13px;
+                font-family: var(--font-d);
+                font-weight: 800;
+                font-size: .8rem;
+                color: var(--ink);
+            }
+            .recipe-intro {
+                font-size: 1.04rem;
+                color: #3a2e32;
+                margin: 12px 0 22px;
+            }
+            .recipe-intro b {
+                color: var(--accent-deep);
+            }
+            .recipe-section h2 {
+                font-family: var(--font-d);
+                color: var(--accent-deep);
+                font-size: 1.28rem;
+                margin: 26px 0 12px;
+            }
+            .recipe-ingredients {
+                list-style: none;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+                gap: 8px;
+            }
+            .recipe-ingredients li {
+                background: #fff;
+                border: 1.5px solid var(--line);
+                border-radius: 14px;
+                padding: 11px 13px 11px 40px;
+                position: relative;
+                font-size: .96rem;
+                cursor: pointer;
+                margin: 0;
+            }
+            .recipe-ingredients li::before {
+                content: "";
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+                border: 2px solid var(--line);
+                border-radius: 6px;
+                background: var(--cream);
+            }
+            .recipe-ingredients li.done {
+                color: var(--muted);
+                text-decoration: line-through;
+            }
+            .recipe-ingredients li.done::before {
+                content: "✓";
+                color: #fff;
+                background: var(--mint);
+                border-color: var(--mint);
+                font-size: .8rem;
+                line-height: 16px;
+                text-align: center;
+                font-family: var(--font-d);
+                font-weight: 800;
+            }
+            .recipe-steps {
+                list-style: none;
+                padding: 0;
+                counter-reset: st;
+            }
+            .recipe-steps li {
+                counter-increment: st;
+                background: #fff;
+                border: 1.5px solid var(--line);
+                border-radius: 16px;
+                padding: 14px 16px 14px 58px;
+                margin: 10px 0;
+                position: relative;
+                font-size: .98rem;
+            }
+            .recipe-steps li::before {
+                content: counter(st,decimal-leading-zero);
+                position: absolute;
+                left: 15px;
+                top: 13px;
+                font-family: var(--font-d);
+                font-weight: 800;
+                color: var(--accent);
+                font-size: 1.15rem;
+            }
+            .recipe-note {
+                background: linear-gradient(135deg,#FFF3EC,#FFE9E7);
+                border: 1.5px dashed var(--accent);
+                border-radius: 16px;
+                padding: 14px 16px;
+                margin: 18px 0;
+                font-style: italic;
+                color: var(--accent-deep);
+                text-align: center;
+                font-weight: 700;
+            }
+            .recipe-back {
+                display: block;
+                text-align: center;
+                background: var(--accent);
+                color: #fff;
+                font-family: var(--font-d);
+                font-weight: 800;
+                padding: 15px;
+                border-radius: 16px;
+                text-decoration: none;
+                margin: 26px 0;
+                box-shadow: 0 6px 0 var(--accent-deep);
+            }
+            .recipe-related {
+                background: #fff;
+                border: 1.5px solid var(--line);
+                border-radius: 18px;
+                padding: 16px 18px;
+                margin: 22px 0;
+            }
+            .recipe-related h2 {
+                margin-top: 0;
+            }
+            .recipe-related a {
+                display: inline-block;
+                margin: 4px 8px 4px 0;
+                background: var(--cream);
+                border: 1.5px solid var(--line);
+                border-radius: 999px;
+                padding: 7px 14px;
+                font-family: var(--font-d);
+                font-weight: 800;
+                font-size: .82rem;
+                text-decoration: none;
+            }
+            .recipe-hint {
+                font-family: var(--font-d);
+                font-weight: 700;
+                font-size: .78rem;
+                color: var(--muted);
+                margin: -4px 0 10px;
+            }
+            .not-found {
+                text-align: center;
+                padding: 60px 20px;
+            }
+            .not-found h1 {
+                font-size: 2rem;
+                color: var(--accent);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 顶部通知栏 -->
+        <div class="nx-bar" id="nxBar">
+            <div class="nx-in">
+                <a class="nx-cta" href="https://neuroxai.com/?utm_source=foodnevercomes&amp;utm_medium=topbar" target="_blank" rel="nofollow noopener">
+                    ⚡ Loved this site? We built it. <b>NeuroX AI</b>
+                    turns AI ideas into real software in 30 days <span class="nx-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <button class="nx-x" id="nxBarX" type="button" aria-label="Dismiss this message">&times;</button>
+            </div>
+        </div>
+
+        <!-- 头部 -->
+        <header>
+            <div class="wrap">
+                <a class="brand" href="/">🍜 FoodNeverComes<small>the dopamine kitchen</small></a>
+                <nav>
+                    <a href="/blog/">Blog</a>
+                    &nbsp;<a href="/recipes.html">All recipes</a>
+                    &nbsp;<a href="/">Order &rarr;</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- 主要内容 -->
+        <main class="wrap" id="recipe-content">
+            <!-- 由 JavaScript 动态渲染 -->
+        </main>
+
+        <!-- 页脚 -->
+        <footer>
+            <div class="wrap">
+                <div class="footer-ad" style="max-width:728px;margin:0 auto 20px;">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7434423973770527" data-ad-slot="9170034692" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                </div>
+                🍜 <a href="/">FoodNeverComes</a> — order the food, skip the bill. <a href="/recipes.html">All recipes</a> ·
+                <a href="https://www.instagram.com/foodnevercomes" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align:-3px;margin-right:3px;" aria-hidden="true">
+                        <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.69.94 3.36.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.31 1.35 20.64.94 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/>
+                    </svg>
+                    Instagram
+                </a>
+                <br>
+                <a href='/about'>About</a> · <a href='/privacy'>Privacy</a> · <a href='/terms'>Terms</a> · <a href='/contact'>Contact</a>
+                <br>
+                ⚡ Funded &amp;built by <a href="https://neuroxai.com" target="_blank" rel="noopener">NeuroX AI</a> — AI prototypes turned into real software in 30 days.
+            </div>
+        </footer>
+
+        <!-- 加载数据文件 -->
+        <script src="recipes-data.js"></script>
+
+        <!-- 核心渲染逻辑 -->
+        <script>
+            // ===== 渲染菜谱详情 =====
+            (function() {
+                const params = new URLSearchParams(window.location.search);
+                const dishKey = params.get('dish');
+
+                // 如果没有 dish 参数，跳回列表页
+                if (!dishKey) {
+                    window.location.href = '/recipes.html';
+                    return;
+                }
+
+                const recipe = RECIPES_DATA[dishKey];
+
+                // 如果菜谱不存在，显示 404
+                if (!recipe) {
+                    document.getElementById('recipe-content').innerHTML = `
+                        <div class="not-found">
+                            <h1>😅 Recipe not found</h1>
+                            <p>We couldn't find "${dishKey}" in our cookbook.</p>
+                            <a class="recipe-back" href="/recipes.html">Browse all recipes →</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // 更新 SEO
+                document.title = recipe.title + ' — Recipe | FoodNeverComes';
+                document.querySelector('#page-title').textContent = document.title;
+                document.querySelector('#page-description').content = recipe.description || '';
+                document.querySelector('#page-canonical').href = window.location.href;
+                document.querySelector('#og-title').content = recipe.title + ' — Recipe';
+                document.querySelector('#og-description').content = recipe.description || '';
+                document.querySelector('#og-image').content = recipe.image || '';
+                document.querySelector('#og-url').content = window.location.href;
+
+                // 生成食材 HTML
+                const ingredientsHtml = recipe.ingredients.map(function(ing) {
+                    return '<li>' + ing + '</li>';
+                }).join('');
+
+                // 生成步骤 HTML
+                const stepsHtml = recipe.steps.map(function(step, index) {
+                    return '<li id="step-' + (index + 1) + '">' + step + '</li>';
+                }).join('');
+
+                // 生成相关菜谱（同菜系，排除自己）
+                let relatedHtml = '';
+                const related = [];
+                Object.keys(RECIPES_DATA).forEach(function(key) {
+                    if (key !== dishKey && RECIPES_DATA[key].cuisine === recipe.cuisine) {
+                        related.push({ key: key, title: RECIPES_DATA[key].title });
+                    }
+                });
+                // 最多显示 6 个
+                related.slice(0, 6).forEach(function(item) {
+                    relatedHtml += '<a href="recipe.html?dish=' + item.key + '">' + item.title + '</a>';
+                });
+
+                // 如果没有同菜系菜谱，显示一些其他推荐
+                if (!relatedHtml) {
+                    Object.keys(RECIPES_DATA).slice(0, 6).forEach(function(key) {
+                        if (key !== dishKey) {
+                            relatedHtml += '<a href="recipe.html?dish=' + key + '">' + RECIPES_DATA[key].title + '</a>';
+                        }
+                    });
+                }
+
+                // 渲染主内容
+                document.getElementById('recipe-content').innerHTML = `
+                    <div class="recipe-hero">
+                        <img src="${recipe.image}" alt="${recipe.title}" onerror="this.style.display='none'">
+                    </div>
+                    <h1>${recipe.title}</h1>
+                    <div class="recipe-meta">
+                        <span>⏱️ ${recipe.time}</span>
+                        <span>🍽️ ${recipe.servings}</span>
+                        <span>🌍 ${recipe.cuisine}</span>
+                    </div>
+                    <p class="recipe-intro">${recipe.description || 'A delicious recipe from FoodNeverComes.'}</p>
+
+                    <div class="recipe-section">
+                        <h2>🛒 Ingredients</h2>
+                        <p class="recipe-hint">Tap ingredients to tick them off ✔️</p>
+                        <ul class="recipe-ingredients">${ingredientsHtml}</ul>
+                    </div>
+
+                    <div class="recipe-section">
+                        <h2>👩‍🍳 Method</h2>
+                        <ol class="recipe-steps">${stepsHtml}</ol>
+                    </div>
+
+                    <div class="recipe-note">The food never comes — but this time, you make it. 🍳</div>
+
+                    <a class="recipe-back" href="/">🍽️ Too hungry to cook? Order it on FoodNeverComes →</a>
+
+                    <div class="recipe-related">
+                        <h2>More ${recipe.cuisine} recipes</h2>
+                        ${relatedHtml}
+                    </div>
+                `;
+
+                // ===== 食材点击打勾 =====
+                document.querySelectorAll('.recipe-ingredients li').forEach(function(li) {
+                    li.addEventListener('click', function() {
+                        this.classList.toggle('done');
+                    });
+                });
+
+            })();
+
+            // ===== nx-bar 关闭 =====
+            (function() {
+                var b = document.getElementById('nxBar');
+                if (!b) return;
+                try {
+                    if (localStorage.getItem('nxBarHide') === '1') {
+                        b.remove();
+                        return;
+                    }
+                } catch (e) {}
+                document.getElementById('nxBarX').addEventListener('click', function() {
+                    b.remove();
+                    try { localStorage.setItem('nxBarHide', '1'); } catch (e) {}
+                });
+            })();
+
+            // ===== AdSense =====
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <!-- Cloudflare Beacon -->
+        <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"bc54658bcb1e4003b33bc72fd924bfa0","r":1}' crossorigin="anonymous"></script>
+    </body>
+</html>

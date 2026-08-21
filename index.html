@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FoodNeverComes — 多巴胺厨房</title>
+    <meta name="description" content="FoodNeverComes 是一个多巴胺站点——浏览12国美食，装满购物车，免费结账，追踪骑手。食物永远不会来，但多巴胺会。">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+</head>
+    </head>
+    <body>
+        <div id="splash" role="status" aria-live="polite" aria-label="Loading FoodNeverComes">
+            <div class="splash-anim">
+                <div class="splash-fallback" aria-hidden="true">🍜</div>
+            </div>
+            <div class="splash-brand">
+                <span class="logo">🍜</span>
+                <span>FoodNeverComes</span>
+            </div>
+            <div class="splash-tag">
+                warming up the kitchen<span class="splash-dots"></span>
+            </div>
+        </div>
+        <div class="nx-bar" id="nxBar">
+            <div class="nx-in">
+                <a class="nx-cta" href="https://neuroxai.com/?utm_source=foodnevercomes&amp;utm_medium=topbar" target="_blank" rel="nofollow noopener">
+                    ⚡ Loved this site? We built it. <b>NeuroX AI</b>
+                    turns AI ideas into real software in 30 days <span class="nx-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+                <button class="nx-x" id="nxBarX" type="button" aria-label="Dismiss this message">&times;</button>
+            </div>
+        </div>
+        <nav>
+            <div class="wrap nav-inner">
+                <div class="brand">
+                    <span class="logo">🍜</span>
+                    <span>
+                        FoodNeverComes<small>the dopamine kitchen</small>
+                    </span>
+                </div>
+                <div class="nav-links">
+                    <a href="#menu">Food hall</a>
+                    <a href="recipes.html">Recipes</a>
+                    <a href="#how">How it works</a>
+                    <a href='about.html'>About</a>
+                    <a href="#" id="navOrders">📜 Orders</a>
+                </div>
+                <nav class="nav-m" aria-label="Quick links">
+                    <a href="/recipes/">📖 Recipes</a>
+                    <a href='/about'>💛 About</a>
+                </nav>
+                <div class="nav-flag-wrap">
+                    <button class="nav-flag" id="navFlag" type="button" aria-haspopup="listbox" aria-expanded="false" title="Choose your region">
+                        <span id="navFlagEmoji">🇰🇷</span>
+                        <span id="navFlagCode">KRW</span>
+                        <span class="nav-flag-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="flag-menu" id="flagMenu" role="listbox" aria-label="Choose your region" hidden></div>
+                </div>
+                <a class="kofi-btn" href="https://rewireheaven.com" target="_blank" rel="noopener">🧠 RewireHeaven</a>
+            </div>
+        </nav>
+        <header>
+            <div class="locbar wrap">
+                <div class="loc">
+                    <span class="loc-ic">📍</span>
+                    <div>
+                        <small>DELIVER TO · 12 min</small>
+                        <b>Home — find me food ▾</b>
+                    </div>
+                </div>
+                <a class="loc-search" href="#menu">
+                    <span>🔍</span>
+                    Search 12 cuisines…
+                </a>
+            </div>
+            <div class="wrap hero-grid hero">
+                <div>
+                    <span class="eyebrow">🧠 a dopamine site · order &amp;never pay</span>
+                    <h1>
+                        Order the food.<br>
+                        <span class="pop">Skip</span>
+                        the bill.
+                    </h1>
+                    <div class="greet" id="heroGreet">안녕하세요! Craving something? 🇰🇷</div>
+                    <p class="lead">The original fake food delivery experience: browse mouth-watering dishes from 12 countries, fill your cart, check out, and watch a rider race to your door. The food never comes — but the dopamine does. ✨</p>
+                    <div class="hero-cta">
+                        <a class="btn btn-primary" href="#menu">Start craving 🍽️</a>
+                        <button class="btn btn-install" id="installBtn" type="button" title="Add FoodNeverComes to your home screen">⬇️ Install app</button>
+                    </div>
+                    <a class="hero-secondary" id="heroAlt" href="/recipes/">😋 or skip the wait — grab the free recipe →</a>
+                    <a href="https://www.instagram.com/foodnevercomes" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;color:var(--muted);font-family:var(--font-d);font-weight:800;font-size:.85rem;text-decoration:none;">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+                            <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.69.94 3.36.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.31 1.35 20.64.94 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/>
+                        </svg>
+                        Follow <span style="color:var(--accent);">@foodnevercomes</span>
+                    </a>
+                    <div class="hero-stat">
+                        <div class="hs-num">
+                            <span id="cravingCount">0</span>
+                            <small>cravings satisfied · 0 spent · and counting 🧠</small>
+                        </div>
+                        <a class="donate-link" href="https://rewireheaven.com" target="_blank" rel="noopener" style="display:inline-block;">Free forever — 🧠 quitting a bad habit? try RewireHeaven</a>
+                    </div>
+                </div>
+                <div class="hero-art" aria-hidden="true">
+                    <span class="sticker" id="freeSticker">₩0 forever</span>
+                    <span class="float-rider">🛵</span>
+                    <div class="photo-frame">
+                        <img id="heroImg" src="images/kr-0.jpg" alt="Featured dish">
+                        <span class="photo-cap" id="heroCap">Bibimbap · Korea</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="wrap promo-wrap">
+            <div class="promos">
+                <a class="promo p1" href="#menu">
+                    <b>50% OFF</b>
+                    <span>every order — forever</span>
+                    <small>🍕 always on, always free</small>
+                </a>
+                <a class="promo p2" href="#menu">
+                    <b>FREE delivery</b>
+                    <span>no minimum · no catch</span>
+                    <small>🛵 the food's free too (it's fake)</small>
+                </a>
+                <a class="promo p3" href="#menu">
+                    <b>0-min delivery</b>
+                    <span>…or never. who's counting?</span>
+                    <small>⚡ instant dopamine hit</small>
+                </a>
+            </div>
+        </div>
+        <div class="wrap" id="dishOfDayWrap"></div>
+        <section id="menu">
+            <div class="wrap">
+                <div class="daily-crave" id="dailyCrave" hidden></div>
+                <div class="sec-head">
+                    <span class="sec-tag">Step 01 · The (free) menu</span>
+                    <h2 id="menuTitle">World food hall 🌍</h2>
+                    <p>Spice it, top it, size it. Prices update live — and stay imaginary.</p>
+                </div>
+                <div class="app-search">
+                    <span>🔍</span>
+                    <input id="dishSearch" type="search" placeholder="Search for dishes — pizza, ramen, taco…" autocomplete="off">
+                </div>
+                <div class="cat-circles" id="catCircles"></div>
+                <div class="rail-head">
+                    <h3>🔥 Trending now</h3>
+                    <small>what everyone's craving</small>
+                </div>
+                <div class="trend-rail" id="trendRail"></div>
+                <div class="filters" id="filters"></div>
+                <div class="menu-grid" id="menuGrid"></div>
+            </div>
+        </section>
+        <section id="how">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="sec-tag">Step 02 · The dopamine loop</span>
+                    <h2>How the hit works 🧠</h2>
+                    <p>Three taps to a guilt-free reward.</p>
+                </div>
+                <div class="steps3">
+                    <div class="step3">
+                        <div class="n">01</div>
+                        <div class="em">🛒</div>
+                        <h3>Fill your cart</h3>
+                        <p>Pile on dishes from anywhere in the world. Customize every option. Watch the total climb — it's monopoly money.</p>
+                    </div>
+                    <div class="step3">
+                        <div class="n">02</div>
+                        <div class="em">💳</div>
+                        <h3>“Pay” in one tap</h3>
+                        <p>Card details are pre-filled with a fake card. No account, no charge, no real number — ever.</p>
+                    </div>
+                    <div class="step3">
+                        <div class="n">03</div>
+                        <div class="em">🛵</div>
+                        <h3>Track the rider</h3>
+                        <p>Get the live countdown and a delivery ping. Then “Delivered!” lands — and so does the dopamine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="support">
+            <div class="wrap">
+                <div class="kofi-card product-card">
+                    <div class="cup">🍳</div>
+                    <h2 id="cookbookH2">Still hungry? Make it yourself 🧑‍🍳</h2>
+                    <p id="cookbookP">
+                        The food never comes here — but it can in your kitchen. Every dish you just browsed comes with a <b>free, dead-simple recipe</b>
+                        — under 20 minutes each, a real photo for every one. No app, no paywall: healthier than takeaway and kind to your wallet. 🛵💨
+                    </p>
+                    <a class="kofi-big" id="cookbookBtn" href="/recipes/">🍳 Browse all 121 free recipes →</a>
+                    <p class="feat" id="cookbookFeat">🇰🇷 Korean · 🇯🇵 Japanese · 🇮🇳 Indian · 🇮🇹 Italian · 🇹🇭 Thai · 🇲🇽 Mexican · 🇺🇸 American · 🇫🇷 French</p>
+                </div>
+                <div class="kofi-card">
+                    <div class="cup">🧠</div>
+                    <h2>Trying to quit something? 🧠</h2>
+                    <p>From the same corner of the internet: RewireHeaven is a free, anonymous app for quitting any bad habit — public pledges, streaks, and a 10-minute urge interceptor. No signup, no payment, no real names.</p>
+                    <a class="kofi-big" href="https://rewireheaven.com" target="_blank" rel="noopener">🧠 Visit RewireHeaven →</a>
+                    <p class="feat">
+                        <a href='/blog/quit-any-addiction-without-willpower' style='color:var(--accent-deep);font-weight:800;'>Read: why willpower is a losing bet →</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="wrap">
+                <div class="brand">
+                    <span class="logo">🍜</span>
+                    <span>FoodNeverComes</span>
+                </div>
+                <p>All the dopamine of ordering, none of the spending. 🧠🧡</p>
+                <form class='signup' id='signupForm' method='POST' name='craving-newsletter'>
+                    <input type="hidden" name="form-name" value="craving-newsletter">
+                    <p hidden>
+                        <label>
+                            Leave this empty: <input name="bot-field">
+                        </label>
+                    </p>
+                    <label class="signup-label" for="signupEmail">🍜 Get the Daily Craving — one tasty dopamine hit a day</label>
+                    <div class="signup-row">
+                        <input id="signupEmail" type="email" name="email" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
+                        <button class="btn btn-primary" type="submit">Sign me up</button>
+                    </div>
+                    <small class="signup-note">No spam, no charges — just cravings. Unsubscribe anytime. 😌</small>
+                </form>
+                <p style="margin:8px 0;">
+                    <a href="/recipes/" style="color:var(--accent);font-weight:800;">🍳 Free recipes for every dish</a>
+                    &nbsp;· &nbsp;<a href="#menu" style="color:var(--accent);font-weight:800;">🍽️ Order (it never comes)</a>
+                    &nbsp;· &nbsp;
+                    <a href="https://www.instagram.com/foodnevercomes" target="_blank" rel="noopener" style="color:var(--accent);font-weight:800;">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align:-3px;margin-right:3px;" aria-hidden="true">
+                            <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.69.94 3.36.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.31 1.35 20.64.94 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/>
+                        </svg>
+                        Instagram
+                    </a>
+                </p>
+                <p style="margin:8px 0;font-size:.9rem;">
+                    <a href='/about' style='color:var(--accent);font-weight:800;'>About</a>
+                    &nbsp;· &nbsp;<a href='/privacy' style='color:var(--accent);font-weight:800;'>Privacy</a>
+                    &nbsp;· &nbsp;<a href='/terms' style='color:var(--accent);font-weight:800;'>Terms</a>
+                    &nbsp;· &nbsp;<a href='/contact' style='color:var(--accent);font-weight:800;'>Contact</a>
+                </p>
+                <p class="fnote">
+                    A dopamine site for fun &amp;calm — no real food, no real payment, no real charges. Photos via Wikimedia Commons &amp;Pexels. Prices are imaginary, converted from ₩ KRW. Sister project: <a href="https://rewireheaven.com" target="_blank" rel="noopener" style="color:var(--accent);font-weight:800;">rewireheaven.com</a>
+                </p>
+                <p class="fnote">
+                    ⚡ Funded &amp;built by <a href="https://neuroxai.com" target="_blank" rel="noopener" style="color:var(--accent);font-weight:800;">NeuroX AI</a>
+                    — AI prototypes turned into real software in 30 days.
+                </p>
+            </div>
+        </footer>
+        <button class="cart-bar empty" id="cartPill" type="button">
+            <span class="cb-left">
+                <span class="count" id="cartCount">0</span>
+                <span id="pillLabel">items in tray</span>
+                <span class="cb-total" id="cartTotal"></span>
+            </span>
+            <span class="cb-cta" id="pillIcon">View Cart 🛒 ›</span>
+        </button>
+        <div class="overlay" id="overlay"></div>
+        <aside class="drawer" id="cartDrawer" aria-label="Your tray">
+            <div class="drawer-head">
+                <h3>🍱 Your tray</h3>
+                <button class="x-btn" type="button" data-close>✕</button>
+            </div>
+            <div class="drawer-body" id="cartItems"></div>
+            <div class="drawer-foot" id="cartFoot"></div>
+        </aside>
+        <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout">
+            <div class="sheet" id="checkoutSheet"></div>
+        </div>
+        <div class="modal" id="trackModal" role="dialog" aria-modal="true" aria-label="Delivery tracking">
+            <div class="sheet" id="trackSheet"></div>
+        </div>
+        <div class="modal" id="custModal" role="dialog" aria-modal="true" aria-label="Customize your dish">
+            <div class="sheet" id="custSheet"></div>
+        </div>
+        <div class="modal" id="courierModal" role="dialog" aria-modal="true" aria-label="Your couriers">
+            <div class="sheet" id="courierSheet"></div>
+        </div>
+        <div class="modal" id="recipeModal" role="dialog" aria-modal="true" aria-label="Recipe">
+            <div class="sheet" id="recipeSheet"></div>
+        </div>
+        <div class="toast" id="toast">🧡 Added to your tray!</div>
+        <div class="ios-sheet" id="iosSheet" role="dialog" aria-label="Add to home screen"></div>
+        <button class="ride-chip" id="rideChip" type="button" aria-label="Track your delivery"></button>
+        <script>
+    //     </script>
+        <!-- ===== Simplified-Chinese overlay (Option B) — ONLY runs for China-detected users or those who pick 中文.
+     For everyone else this returns immediately; the English UI is never modified. ===== -->
+        <script src="app.js"></script>
+    </body>
+</html>

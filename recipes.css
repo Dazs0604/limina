@@ -1,0 +1,374 @@
+            :root {
+                --accent: #F25C54;
+                --accent-deep: #D8443D;
+                --ink: #2C2024;
+                --muted: #8A7A80;
+                --cream: #FFF7F3;
+                --line: #F0DCD4;
+                --mint: #2EC4B6;
+                --font-d: "Trebuchet MS","Segoe UI",sans-serif;
+                --font-b: Georgia,serif
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0
+            }
+
+            body {
+                font-family: var(--font-b);
+                color: var(--ink);
+                background: var(--cream);
+                line-height: 1.65
+            }
+
+            a {
+                color: var(--accent-deep)
+            }
+
+            .wrap {
+                max-width: 760px;
+                margin: 0 auto;
+                padding: 0 18px
+            }
+
+            header {
+                background: #fff;
+                border-bottom: 2px solid var(--line);
+                position: sticky;
+                top: 0;
+                z-index: 5
+            }
+
+            header .wrap {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 18px
+            }
+
+            .brand {
+                font-family: var(--font-d);
+                font-weight: 800;
+                color: var(--accent);
+                text-decoration: none;
+                font-size: 1.2rem
+            }
+
+            .brand small {
+                display: block;
+                font-size: .6rem;
+                color: var(--muted);
+                letter-spacing: .03em
+            }
+
+            nav a {
+                font-family: var(--font-d);
+                font-weight: 800;
+                font-size: .85rem;
+                text-decoration: none;
+                color: var(--ink);
+                margin-left: 10px
+            }
+
+            .hero img {
+                width: 100%;
+                aspect-ratio: 16/9;
+                max-height: 360px;
+                object-fit: cover;
+                border-radius: 22px;
+                margin: 20px 0 0;
+                border: 1px solid var(--line);
+                box-shadow: 0 18px 40px -22px rgba(67,48,58,.45);
+                display: block
+            }
+
+            h1 {
+                font-family: var(--font-d);
+                font-size: clamp(1.6rem,5vw,2.1rem);
+                line-height: 1.12;
+                margin: 18px 0 10px
+            }
+
+            .meta {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                margin-bottom: 12px
+            }
+
+            .meta span {
+                background: #fff;
+                border: 1.5px solid var(--line);
+                border-radius: 999px;
+                padding: 6px 13px;
+                font-family: var(--font-d);
+                font-weight: 800;
+                font-size: .8rem;
+                color: var(--ink)
+            }
+
+            .intro {
+                font-size: 1.04rem;
+                color: #3a2e32;
+                margin: 12px 0 22px
+            }
+
+            .intro b {
+                color: var(--accent-deep)
+            }
+
+            h2 {
+                font-family: var(--font-d);
+                color: var(--accent-deep);
+                font-size: 1.28rem;
+                margin: 26px 0 12px
+            }
+
+            ul.ing {
+                list-style: none;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+                gap: 8px
+            }
+
+            ul.ing li {
+                background: #fff;
+                border: 1.5px solid var(--line);
+                border-radius: 14px;
+                padding: 11px 13px 11px 40px;
+                position: relative;
+                font-size: .96rem;
+                cursor: pointer;
+                margin: 0
+            }
+
+            ul.ing li::before {
+                content: "";
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+                border: 2px solid var(--line);
+                border-radius: 6px;
+                background: var(--cream)
+            }
+
+            ul.ing li.done {
+                color: var(--muted);
+                text-decoration: line-through
+            }
+
+            ul.ing li.done::before {
+                content: "✓";
+                color: #fff;
+                background: var(--mint);
+                border-color: var(--mint);
+                font-size: .8rem;
+                line-height: 16px;
+                text-align: center;
+                font-family: var(--font-d);
+                font-weight: 800
+            }
+
+            .hint {
+                font-family: var(--font-d);
+                font-weight: 700;
+                font-size: .78rem;
+                color: var(--muted);
+                margin: -4px 0 10px
+            }
+
+            ol.steps {
+                list-style: none;
+                padding: 0;
+                counter-reset: st
+            }
+
+            ol.steps li {
+                counter-increment: st;
+                background: #fff;
+                border: 1.5px solid var(--line);
+                border-radius: 16px;
+                padding: 14px 16px 14px 58px;
+                margin: 10px 0;
+                position: relative;
+                font-size: .98rem
+            }
+
+            ol.steps li::before {
+                content: counter(st,decimal-leading-zero);
+                position: absolute;
+                left: 15px;
+                top: 13px;
+                font-family: var(--font-d);
+                font-weight: 800;
+                color: var(--accent);
+                font-size: 1.15rem
+            }
+
+            ul,ol {
+                padding-left: 22px
+            }
+
+            li {
+                margin: 7px 0
+            }
+
+            ul.ing li,ol.steps li {
+                margin: 0
+            }
+
+            ol.steps li {
+                margin: 10px 0
+            }
+
+            .cta {
+                display: block;
+                text-align: center;
+                background: var(--accent);
+                color: #fff;
+                font-family: var(--font-d);
+                font-weight: 800;
+                padding: 15px;
+                border-radius: 16px;
+                text-decoration: none;
+                margin: 26px 0;
+                box-shadow: 0 6px 0 var(--accent-deep)
+            }
+
+            .related {
+                background: #fff;
+                border: 1.5px solid var(--line);
+                border-radius: 18px;
+                padding: 16px 18px;
+                margin: 22px 0
+            }
+
+            .related h2 {
+                margin-top: 0
+            }
+
+            .related a {
+                display: inline-block;
+                margin: 4px 8px 4px 0;
+                background: var(--cream);
+                border: 1.5px solid var(--line);
+                border-radius: 999px;
+                padding: 7px 14px;
+                font-family: var(--font-d);
+                font-weight: 800;
+                font-size: .82rem;
+                text-decoration: none
+            }
+
+            footer {
+                border-top: 2px solid var(--line);
+                margin-top: 34px;
+                padding: 22px 0;
+                text-align: center;
+                color: var(--muted);
+                font-size: .85rem
+            }
+
+            .note {
+                background: linear-gradient(135deg,#FFF3EC,#FFE9E7);
+                border: 1.5px dashed var(--accent);
+                border-radius: 16px;
+                padding: 14px 16px;
+                margin: 18px 0;
+                font-style: italic;
+                color: var(--accent-deep);
+                text-align: center;
+                font-weight: 700
+            }
+
+            /* NeuroX AI top bar — scrolls away, dismissible */
+            .nx-bar {
+                background: #3B2A33;
+                color: #FFF6F2;
+                font-family: var(--font-d)
+            }
+
+            .nx-in {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 9px 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative
+            }
+
+            .nx-cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                flex-wrap: wrap;
+                justify-content: center;
+                color: #FFF6F2;
+                text-decoration: none;
+                font-weight: 800;
+                font-size: .86rem;
+                line-height: 1.35;
+                text-align: center
+            }
+
+            .nx-cta b {
+                color: #FFD36B
+            }
+
+            .nx-cta .nx-arrow {
+                display: inline-block;
+                transition: transform .15s
+            }
+
+            .nx-cta:hover .nx-arrow {
+                transform: translateX(3px)
+            }
+
+            .nx-x {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: 0;
+                color: rgba(255,246,242,.55);
+                font: inherit;
+                font-size: 1.2rem;
+                line-height: 1;
+                cursor: pointer;
+                width: 44px;
+                height: 44px;
+                display: grid;
+                place-items: center;
+                border-radius: 10px
+            }
+
+            .nx-x:hover {
+                color: #FFF6F2;
+                background: rgba(255,255,255,.12)
+            }
+
+            @media(max-width: 520px) {
+                .nx-in {
+                    padding:8px 44px 8px 12px
+                }
+
+                .nx-cta {
+                    font-size: .78rem
+                }
+            }
+
+            .cuisine {
+                margin: 22px 0
+            }
+
+            .cuisine h2 {
+                margin-bottom: 8px
+            }
